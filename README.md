@@ -17,7 +17,7 @@ The goal of this project was to gain hands-on experience with software defined r
 - Linux
 - Software Defined Radio (SDR)
 - RF Communications
-- Networking
+- TCP/IP Networking
 - System Integration
 - Command Line
 - Hardware Troubleshooting
@@ -26,7 +26,7 @@ The goal of this project was to gain hands-on experience with software defined r
 
 | Component | Purpose |
 |-----------|---------|
-| Raspberry Pi 5 | Hosts the ADS-B software and web server |
+| Raspberry Pi 5 | Runs Raspberry Pi OS, dump1090-fa, and the SkyAware web interface |
 | Nooelec NESDR Smart v5 | Receives 1090 MHz ADS-B transmissions |
 | MicroSD Card | Stores Raspberry Pi OS |
 | Power Supply | Powers the Raspberry Pi |
@@ -34,6 +34,8 @@ The goal of this project was to gain hands-on experience with software defined r
 | 1090 MHz Antenna | Receives aircraft signals |
 
 ## Software
+
+- rtl-sdr
 
 ### Operating System
 
@@ -52,14 +54,18 @@ sudo apt update
 sudo apt upgrade
 sudo apt install git
 ```
-
-Install dump1090-fa following FlightAware's repository instructions.
+wget https://flightaware.com/adsb/piaware/files/packages/pool/bookworm/piaware-repository_11.0_all.deb
+...
 
 ### Configuration
 
-- Enabled the dump1090-fa service
-- Verified RTL-SDR detection
-- Accessed the web interface through the Raspberry Pi IP address
+Verified RTL-SDR detection using rtl_test
+
+Confirmed dump1090-fa service was active
+
+Verified aircraft reception through the SkyAware web interface
+
+Accessed the receiver remotely using the Raspberry Pi IP address
 
 ## System Design
 
