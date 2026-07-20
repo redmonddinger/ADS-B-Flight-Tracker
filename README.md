@@ -7,6 +7,10 @@ This project demonstrates RF fundamentals, Software Defined Radio (SDR), Linux s
 
 ## Project Overview
 
+This project uses a Raspberry Pi 5 and an RTL-SDR receiver to capture Automatic Dependent Surveillance–Broadcast (ADS-B) transmissions from nearby aircraft operating at 1090 MHz. The received signals are decoded using dump1090-fa and served through a browser-based interface, allowing aircraft positions, altitude, speed, and identification information to be monitored in real time.
+
+The goal of this project was to gain hands-on experience with software defined radio, Linux system configuration, RF communications, and integrating hardware and software into a functional monitoring system.
+
 ## Skills Demonstrated
 
 - Raspberry Pi
@@ -59,6 +63,31 @@ Install dump1090-fa following FlightAware's repository instructions.
 
 ## System Design
 
+```text
+Aircraft
+    │
+    ▼
+1090 MHz ADS-B Signal
+    │
+    ▼
+1090 MHz Antenna
+    │
+    ▼
+RTL-SDR Receiver
+    │ USB
+    ▼
+Raspberry Pi 5
+    │
+    ▼
+dump1090-fa
+    │
+    ▼
+SkyAware Web Server
+    │ HTTP
+    ▼
+Web Browser
+```
+
 ## Build Guide
 
 ## Results
@@ -66,6 +95,14 @@ Install dump1090-fa following FlightAware's repository instructions.
 ## Troubleshooting
 
 ## Future Improvements
+
+- Install an outdoor 1090 MHz antenna
+- Add a low-noise amplifier (LNA)
+- Increase reception range
+- Feed data to FlightAware
+- Log aircraft data to a database
+- Build a custom enclosure
+- Design a custom PCB for SDR power filtering
 
 ## License
 
