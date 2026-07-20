@@ -1,13 +1,13 @@
-# ADS-B-Flight-Tracker
+# ADS-B Aircraft Tracking Station
 Raspberry Pi ADS-B receiver using an RTL-SDR to monitor live aircraft transmissions.
 
-The system receives 1090 MHz ADS-B broadcasts from nearby aircraft, decodes them using dump1090-fa, and displays real-time aircraft positions and flight information through a browser-based interface.
+The system receives 1090 MHz ADS-B broadcasts from nearby aircraft, decodes them using readsb, and displays real-time aircraft positions and flight information through the tar1090 web interface.
 
 This project demonstrates RF fundamentals, Software Defined Radio (SDR), Linux system administration, networking, and hardware/software integration.
 
 ## Project Overview
 
-This project uses a Raspberry Pi 5 and an RTL-SDR receiver to capture Automatic Dependent Surveillance–Broadcast (ADS-B) transmissions from nearby aircraft operating at 1090 MHz. The received signals are decoded using dump1090-fa and served through a browser-based interface, allowing aircraft positions, altitude, speed, and identification information to be monitored in real time.
+This project uses a Raspberry Pi 5 and an RTL-SDR receiver to capture Automatic Dependent Surveillance–Broadcast (ADS-B) transmissions from nearby aircraft operating at 1090 MHz. The received signals are decoded using readsb and served through the tar1090 web interface, allowing aircraft positions, altitude, speed, and identification information to be monitored in real time.
 
 The goal of this project was to gain hands-on experience with software defined radio, Linux system configuration, RF communications, and integrating hardware and software into a functional monitoring system.
 
@@ -26,7 +26,7 @@ The goal of this project was to gain hands-on experience with software defined r
 
 | Component | Purpose |
 |-----------|---------|
-| Raspberry Pi 5 | Runs Raspberry Pi OS, dump1090-fa, and the SkyAware web interface |
+| Raspberry Pi 5 | Runs Raspberry Pi OS, readsb, and the tar1090 web interface |
 | Nooelec NESDR Smart v5 | Receives 1090 MHz ADS-B transmissions |
 | MicroSD Card | Stores Raspberry Pi OS |
 | Power Supply | Powers the Raspberry Pi |
@@ -35,7 +35,10 @@ The goal of this project was to gain hands-on experience with software defined r
 
 ## Software
 
-- rtl-sdr
+- readsb
+- tar1090
+- lighttpd
+- git
 
 ### Operating System
 
@@ -61,9 +64,9 @@ wget https://flightaware.com/adsb/piaware/files/packages/pool/bookworm/piaware-r
 
 Verified RTL-SDR detection using rtl_test
 
-Confirmed dump1090-fa service was active
+Confirmed the readsb service was active
 
-Verified aircraft reception through the SkyAware web interface
+Verified aircraft reception through the tar1090 web interface
 
 Accessed the receiver remotely using the Raspberry Pi IP address
 
@@ -92,12 +95,12 @@ Accessed the receiver remotely using the Raspberry Pi IP address
       │
       ▼
 +--------------+
-| dump1090-fa  |
+|    readsb    |
 +--------------+
       │ HTTP
       ▼
 +--------------+
-| SkyAware UI  |
+|   tar1090    |
 +--------------+
       │
       ▼
@@ -105,7 +108,7 @@ Accessed the receiver remotely using the Raspberry Pi IP address
 | Web Browser  |
 +--------------+
 ```
-Aircraft continuously broadcast ADS-B messages at 1090 MHz. The antenna receives these RF signals and passes them to the RTL-SDR, which digitizes the data and sends it to the Raspberry Pi over USB. The dump1090-fa software decodes the messages and serves them through the SkyAware web interface, allowing nearby aircraft to be viewed from any browser on the local network.
+Aircraft continuously broadcast ADS-B messages at 1090 MHz. The antenna receives these RF signals and passes them to the RTL-SDR, which digitizes the data and sends it to the Raspberry Pi over USB. The readsb software decodes the ADS-B messages and provides the data to the tar1090 web interface, allowing nearby aircraft to be viewed from any browser on the local network.
 
 ## Build Guide
 
@@ -141,24 +144,24 @@ You should see an RTL2838-based SDR device listed.
 
 ---
 
-### 4. Install dump1090-fa
+### 4. Install readsb and tar1090
 
-Install FlightAware's dump1090-fa package following the official installation instructions. This software decodes ADS-B transmissions received by the RTL-SDR and hosts the SkyAware web interface.
+Install the readsb ADS-B decoder and the tar1090 web interface following their official installation instructions.
 
 After installation, verify that the service is running:
 
 ```bash
-sudo systemctl status dump1090-fa
+sudo systemctl status readsb
 ```
 
 ---
 
 ### 5. Verify Aircraft Reception
 
-Open the local SkyAware interface:
+Open the local tar1090 interface:
 
 ```
-http://<RaspberryPi-IP>/skyaware
+http://<RaspberryPi-IP>/tar1090
 ```
 
 You should see nearby aircraft displayed on the map.
@@ -166,7 +169,7 @@ You should see nearby aircraft displayed on the map.
 You can also verify that aircraft are being received from the terminal:
 
 ```bash
-journalctl -u dump1090-fa -f
+journalctl -u readsb -f
 ```
 
 ---
@@ -182,7 +185,7 @@ hostname -I
 From any device connected to the same local network, open a browser and navigate to:
 
 ```
-http://<RaspberryPi-IP>/skyaware
+http://<RaspberryPi-IP>/tar1090
 ```
 
 The web interface displays live aircraft positions, altitude, speed, heading, and identification information in real time.
