@@ -70,31 +70,122 @@ Accessed the receiver remotely using the Raspberry Pi IP address
 ## System Design
 
 ```text
-Aircraft
-    │
-    ▼
-1090 MHz ADS-B Signal
-    │
-    ▼
-1090 MHz Antenna
-    │
-    ▼
-RTL-SDR Receiver
-    │ USB
-    ▼
-Raspberry Pi 5
-    │
-    ▼
-dump1090-fa
-    │
-    ▼
-SkyAware Web Server
-    │ HTTP
-    ▼
-Web Browser
++-----------+
+| Aircraft  |
++-----------+
+      │
+1090 MHz RF
+      ▼
++-----------+
+| Antenna   |
++-----------+
+      │
+      ▼
++-----------+
+| RTL-SDR   |
++-----------+
+      │ USB
+      ▼
++--------------+
+| Raspberry Pi |
++--------------+
+      │
+      ▼
++--------------+
+| dump1090-fa  |
++--------------+
+      │ HTTP
+      ▼
++--------------+
+| SkyAware UI  |
++--------------+
+      │
+      ▼
++--------------+
+| Web Browser  |
++--------------+
 ```
+Aircraft continuously broadcast ADS-B messages at 1090 MHz. The antenna receives these RF signals and passes them to the RTL-SDR, which digitizes the data and sends it to the Raspberry Pi over USB. The dump1090-fa software decodes the messages and serves them through the SkyAware web interface, allowing nearby aircraft to be viewed from any browser on the local network.
 
 ## Build Guide
+
+### 1. Install Raspberry Pi OS
+
+Flash the latest 64-bit version of Raspberry Pi OS to a microSD card using Raspberry Pi Imager. Insert the microSD card into the Raspberry Pi, connect power, and complete the initial operating system setup.
+
+---
+
+### 2. Update the Raspberry Pi
+
+Update the operating system and install Git.
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install git
+```
+
+---
+
+### 3. Connect the RTL-SDR
+
+Connect the Nooelec NESDR Smart v5 to a USB port on the Raspberry Pi and attach the 1090 MHz antenna.
+
+Verify that the RTL-SDR is detected:
+
+```bash
+lsusb
+```
+
+You should see an RTL2838-based SDR device listed.
+
+---
+
+### 4. Install dump1090-fa
+
+Install FlightAware's dump1090-fa package following the official installation instructions. This software decodes ADS-B transmissions received by the RTL-SDR and hosts the SkyAware web interface.
+
+After installation, verify that the service is running:
+
+```bash
+sudo systemctl status dump1090-fa
+```
+
+---
+
+### 5. Verify Aircraft Reception
+
+Open the local SkyAware interface:
+
+```
+http://<RaspberryPi-IP>/skyaware
+```
+
+You should see nearby aircraft displayed on the map.
+
+You can also verify that aircraft are being received from the terminal:
+
+```bash
+journalctl -u dump1090-fa -f
+```
+
+---
+
+### 6. Access the System from Another Device
+
+Determine the Raspberry Pi's IP address:
+
+```bash
+hostname -I
+```
+
+From any device connected to the same local network, open a browser and navigate to:
+
+```
+http://<RaspberryPi-IP>/skyaware
+```
+
+The web interface displays live aircraft positions, altitude, speed, heading, and identification information in real time.
 
 ## Results
 
