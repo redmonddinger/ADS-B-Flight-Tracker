@@ -9,9 +9,53 @@ This project demonstrates RF fundamentals, Software Defined Radio (SDR), Linux s
 
 ## Skills Demonstrated
 
+- Raspberry Pi
+- Linux
+- Software Defined Radio (SDR)
+- RF Communications
+- Networking
+- System Integration
+- Command Line
+- Hardware Troubleshooting
+
 ## Hardware
 
+| Component | Purpose |
+|-----------|---------|
+| Raspberry Pi 5 | Hosts the ADS-B software and web server |
+| Nooelec NESDR Smart v5 | Receives 1090 MHz ADS-B transmissions |
+| MicroSD Card | Stores Raspberry Pi OS |
+| Power Supply | Powers the Raspberry Pi |
+| USB Extension (optional) | Reduces RF interference |
+| 1090 MHz Antenna | Receives aircraft signals |
+
 ## Software
+
+### Operating System
+
+- Raspberry Pi OS (64-bit)
+
+### Packages
+
+- dump1090-fa
+- lighttpd
+- git
+
+### Installation
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install git
+```
+
+Install dump1090-fa following FlightAware's repository instructions.
+
+### Configuration
+
+- Enabled the dump1090-fa service
+- Verified RTL-SDR detection
+- Accessed the web interface through the Raspberry Pi IP address
 
 ## System Design
 
@@ -24,3 +68,4 @@ This project demonstrates RF fundamentals, Software Defined Radio (SDR), Linux s
 ## Future Improvements
 
 ## License
+
