@@ -21,6 +21,10 @@ The goal of this project was to gain hands-on experience with software defined r
 - System Integration
 - Command Line
 - Hardware Troubleshooting
+- Embedded Linux
+- System Configuration
+- Network Configuration
+- Technical Documentation
 
 ## Hardware
 
@@ -39,6 +43,7 @@ The goal of this project was to gain hands-on experience with software defined r
 - tar1090
 - lighttpd
 - git
+- raspberry pi OS
 
 ### Operating System
 
