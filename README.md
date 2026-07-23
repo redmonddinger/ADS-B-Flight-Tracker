@@ -10,7 +10,7 @@ This project gave me hands-on experience with software defined radio (SDR), Linu
 
 For this project, I used a Raspberry Pi 5 and an RTL-SDR receiver to capture ADS-B transmissions broadcast by nearby aircraft at 1090 MHz. The signals are decoded with readsb and displayed through the tar1090 web interface, where I can view aircraft positions, altitude, speed, heading, and identification information in real time.
 
-My goal was to learn more about software defined radio, Linux configuration, and RF communications while building a complete system from start to finish. Along the way, I configured the software, verified the hardware, troubleshot connection issues, and got everything working together as a functional aircraft tracking station.
+My goal was to learn more about software defined radio, Linux configuration, and RF communications. Throughout the project, I configured the software, verified the hardware, troubleshot connection issues, and got everything working together as a functional aircraft tracking station.
 
 ## Skills Demonstrated
 
