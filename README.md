@@ -38,6 +38,12 @@ My goal was to learn more about software defined radio, Linux configuration, and
 | USB Extension (optional) | Reduces RF interference |
 | 1090 MHz Antenna | Receives aircraft signals |
 
+## Hardware Setup
+
+<p align="center">
+  <img src="images/159C1981-CAEF-4537-A12C-4DF9BD475E3C.png" alt="Completed ADS-B receiver setup" width="700">
+</p>
+
 ## Software
 
 - readsb
@@ -202,6 +208,12 @@ http://<RaspberryPi-IP>/tar1090
 This let me access the same live aircraft map from another computer without needing to connect directly to the Raspberry Pi.
 
 ## Results
+
+After getting everything running, I was able to receive and decode live ADS-B transmissions from aircraft around the Portland area.
+
+<p align="center">
+  <img src="images/IMG_1175.jpeg" alt="Live aircraft map in tar1090" width="48%">
+</p>
 
 ## Troubleshooting
 
