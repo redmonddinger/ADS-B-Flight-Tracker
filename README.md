@@ -51,7 +51,9 @@ The goal of this project was to gain hands-on experience with software defined r
 
 ### Packages
 
-- dump1090-fa
+- readsb
+- tar1090
+- rtl-sdr
 - lighttpd
 - git
 
@@ -74,6 +76,10 @@ Confirmed the readsb service was active
 Verified aircraft reception through the tar1090 web interface
 
 Accessed the receiver remotely using the Raspberry Pi IP address
+
+Confirmed tar1090 web interface was reachable
+
+Verified automatic startup after reboot
 
 ## System Design
 
@@ -149,7 +155,7 @@ You should see an RTL2838-based SDR device listed.
 
 ---
 
-### 4. Install readsb and tar1090
+### 4. Install and configure readsb and tar1090
 
 Install the readsb ADS-B decoder and the tar1090 web interface following their official installation instructions.
 
@@ -194,6 +200,8 @@ http://<RaspberryPi-IP>/tar1090
 ```
 
 The web interface displays live aircraft positions, altitude, speed, heading, and identification information in real time.
+
+Ensure both devices are connected to the same local network.
 
 ## Results
 
