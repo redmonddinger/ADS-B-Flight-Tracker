@@ -215,6 +215,18 @@ After getting everything running, I was able to receive and decode live ADS-B tr
   <img src="images/IMG_1175.jpeg" alt="Live aircraft map in tar1090" width="48%">
 </p>
 
+During testing, the system tracked five aircraft at the same time and displayed real-time flight information through the tar1090 web interface.
+
+| Callsign | Aircraft | Airline | Altitude (ft) | Speed (kt) |
+|----------|----------|---------|--------------:|-----------:|
+| SKW3112 | Embraer ERJ-170 | SkyWest | 16,725 | 351 |
+| ASA1394 | Boeing 737-900 | Alaska Airlines | 14,225 | 340 |
+| QXE2399 | Embraer E175 | Horizon Air | 12,300 | 328 |
+| FFT4499 | Airbus A320 | Frontier Airlines | 5,825 | 218 |
+| SWA949 | Boeing 737-700 | Southwest Airlines | 4,950 | 259 |
+
+The screenshots below show the receiver tracking nearby aircraft and displaying their position, altitude, speed, heading, and aircraft information in real time.
+
 ## Troubleshooting
 
 ## Future Improvements
