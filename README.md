@@ -1,15 +1,16 @@
 # ADS-B Aircraft Tracking Station
-Raspberry Pi ADS-B receiver using an RTL-SDR to monitor live aircraft transmissions.
 
-The system receives 1090 MHz ADS-B broadcasts from nearby aircraft, decodes them using readsb, and displays real-time aircraft positions and flight information through the tar1090 web interface.
+I built an ADS-B aircraft tracking station using a Raspberry Pi 5 and an RTL-SDR receiver to monitor live aircraft transmissions.
 
-This project demonstrates RF fundamentals, Software Defined Radio (SDR), Linux system administration, networking, and hardware/software integration.
+The system receives 1090 MHz ADS-B signals from nearby aircraft, decodes them with readsb, and displays real-time flight information through the tar1090 web interface.
+
+This project gave me hands-on experience with software defined radio (SDR), Linux, RF communications, networking, and integrating hardware and software into a working system.
 
 ## Project Overview
 
-This project uses a Raspberry Pi 5 and an RTL-SDR receiver to capture Automatic Dependent Surveillance–Broadcast (ADS-B) transmissions from nearby aircraft operating at 1090 MHz. The received signals are decoded using readsb and served through the tar1090 web interface, allowing aircraft positions, altitude, speed, and identification information to be monitored in real time.
+For this project, I used a Raspberry Pi 5 and an RTL-SDR receiver to capture ADS-B transmissions broadcast by nearby aircraft at 1090 MHz. The signals are decoded with readsb and displayed through the tar1090 web interface, where I can view aircraft positions, altitude, speed, heading, and identification information in real time.
 
-The goal of this project was to gain hands-on experience with software defined radio, Linux system configuration, RF communications, and integrating hardware and software into a functional monitoring system.
+My goal was to learn more about software defined radio, Linux configuration, and RF communications while building a complete system from start to finish. Along the way, I configured the software, verified the hardware, troubleshot connection issues, and got everything working together as a functional aircraft tracking station.
 
 ## Skills Demonstrated
 
