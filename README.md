@@ -46,7 +46,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 
 - readsb
 - tar1090
-- git
 - raspberry pi OS
 
 ### Operating System
@@ -58,7 +57,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 - readsb
 - tar1090
 - rtl-sdr
-- git
 
 ### Configuration
 
