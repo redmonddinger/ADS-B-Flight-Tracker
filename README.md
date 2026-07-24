@@ -20,7 +20,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 - RF Communications
 - TCP/IP Networking
 - System Integration
-- Command Line
 - Hardware Troubleshooting
 - Embedded Linux
 - System Configuration
