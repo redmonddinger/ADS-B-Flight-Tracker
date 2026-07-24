@@ -211,8 +211,6 @@ Here are a few things I checked while getting the system up and running:
 |------|----------|
 | RTL-SDR wasn't detected | Verified the USB connection and confirmed the device appeared with `lsusb`. |
 | No aircraft showing in tar1090 | Checked that the antenna was connected and that the `readsb` service was running. |
-| Couldn't access the web interface | Verified the Raspberry Pi's IP address and made sure both devices were on the same local network. |
-| readsb wasn't running | Checked the service status with `sudo systemctl status readsb` and restarted it if needed. |
 
 ## Future Improvements
 
