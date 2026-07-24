@@ -34,7 +34,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 | Nooelec NESDR Smart v5 | Receives 1090 MHz ADS-B transmissions |
 | MicroSD Card | Stores Raspberry Pi OS |
 | Power Supply | Powers the Raspberry Pi |
-| USB Extension (optional) | Reduces RF interference |
 | 1090 MHz Antenna | Receives aircraft signals |
 
 ## Hardware Setup
