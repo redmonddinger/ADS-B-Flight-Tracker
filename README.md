@@ -48,7 +48,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 
 - readsb
 - tar1090
-- lighttpd
 - git
 - raspberry pi OS
 
@@ -61,7 +60,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 - readsb
 - tar1090
 - rtl-sdr
-- lighttpd
 - git
 
 ### Configuration
