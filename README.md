@@ -64,16 +64,6 @@ My goal was to learn more about software defined radio, Linux configuration, and
 - lighttpd
 - git
 
-### Installation
-
-```bash
-sudo apt update
-sudo apt upgrade
-sudo apt install git
-```
-wget https://flightaware.com/adsb/piaware/files/packages/pool/bookworm/piaware-repository_11.0_all.deb
-...
-
 ### Configuration
 
 Verified RTL-SDR detection using rtl_test
