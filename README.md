@@ -167,12 +167,6 @@ http://<RaspberryPi-IP>/tar1090
 
 Once nearby aircraft started appearing on the map, I knew the system was successfully receiving and decoding ADS-B transmissions.
 
-I also verified that readsb was actively receiving messages from the terminal.
-
-```bash
-journalctl -u readsb -f
-```
-
 ---
 
 ### 6. Access the System from Another Device
